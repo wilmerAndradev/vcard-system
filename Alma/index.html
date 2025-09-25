@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- META TAGS: Información básica que necesita el navegador -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres (permite acentos, ñ, etc.) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que se vea bien en móviles -->
+    
+    <!-- TÍTULO: Lo que aparece en la pestaña del navegador -->
+    <title>vCard - Contacto Profesional</title>
+
+    <!-- FAVICON: Ícono que aparece en la pestaña del navegador -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-touch-icon.png">
+
+    
+    <!-- FUENTES DE GOOGLE: Importamos Playfair Display y Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- ICONOS: Font Awesome para los iconos de WhatsApp, email, etc. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- NUESTROS ESTILOS: Enlazamos nuestro archivo CSS -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+    <!-- PANTALLA DE PRECARGA: Se mostrará 1 segundo antes de la vCard -->
+    <div id="preloader" class="preloader">
+        <!-- Contenedor de los logos con animación -->
+        <div class="preloader-content">
+            <!-- Logo 1: Primer logo de empresa -->
+            <img src="./assets/images/logo 1.png" alt="Logo Empresa 1" class="logo logo1">
+            <!-- Logo 2: Segundo logo de empresa -->
+            <img src="./assets/images/logo 2.png" alt="Logo Empresa 2" class="logo logo2">
+        </div>
+    </div>
+
+    <!-- CONTENEDOR PRINCIPAL: Aquí va toda la vCard -->
+    <div id="vcard-container" class="vcard-container hidden">
+        
+        <!-- SECCIÓN SUPERIOR: Fondo degradado, foto, nombre y botones principales -->
+        <section class="hero-section">
+            <!-- Foto de perfil circular -->
+            <div class="profile-image-container">
+                <img id="profile-image" src="./assets/images/profile-alma.png" alt="Foto de perfil" class="profile-image">
+            </div>
+            
+            <!-- Nombre y cargo -->
+            <div class="profile-info">
+                <h1 id="profile-name" class="profile-name">Alma Mirani Gulrajani</h1>
+                <h2 id="profile-title" class="profile-title">CEO</h2>
+            </div>
+            
+            <!-- Botones de acción directa: teléfono y email -->
+            <div class="action-buttons">
+                <!-- Botón de WhatsApp/Teléfono -->
+                <a id="phone-btn" href="https://wa.me/56959189393" class="action-btn phone-btn" target="_blank" rel="noopener">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <!-- Botón de Email -->
+                <a id="email-btn" href="mailto:alma@silkperfumes.cl" class="action-btn email-btn">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECCIÓN CENTRAL: Información de contacto detallada -->
+        <section class="contact-section">
+            <!-- WhatsApp -->
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-label">WhatsApp</span>
+                    <span id="whatsapp-number" class="contact-value">+56 9 5918 9393</span>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-label">E-mail</span>
+                    <span id="email-address" class="contact-value">alma@silkperfumes.cl</span>
+                </div>
+            </div>
+
+            <!-- Empresa -->
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-label">Empresa</span>
+                    <span id="company-name" class="contact-value">Emirati Perfumes / Silk Perfumes</span>
+                </div>
+            </div>
+
+            <!-- Ubicaciones -->
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-label">Ubicaciones</span>
+                    <span id="locations" class="contact-value">Chile / Argentina</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN REDES SOCIALES CON PESTAÑAS -->
+        <section class="social-section">
+            <h3 class="social-title">Encuéntreme en</h3>
+            
+            <!-- PESTAÑAS -->
+            <div class="social-tabs">
+                <button class="social-tab active" data-company="emirati">
+                    Emirati Perfumes
+                </button>
+                <button class="social-tab" data-company="silk">
+                    Silk Perfumes
+                </button>
+            </div>
+            
+            <!-- CONTENIDO DE REDES SOCIALES -->
+            <div class="social-content">
+                <!-- REDES DE EMIRATI PERFUMES -->
+                <div class="social-buttons" id="emirati-social" data-company="emirati">
+                    <a href="#" class="social-btn instagram-btn emirati-instagram" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#" class="social-btn facebook-btn emirati-facebook hidden" target="_blank" rel="noopener">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>Facebook</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#" class="social-btn tiktok-btn emirati-tiktok hidden" target="_blank" rel="noopener">
+                        <i class="fab fa-tiktok"></i>
+                        <span>TikTok</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- REDES DE SILK PERFUMES -->
+                <div class="social-buttons hidden" id="silk-social" data-company="silk">
+                    <a href="#" class="social-btn instagram-btn silk-instagram" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#" class="social-btn facebook-btn silk-facebook hidden" target="_blank" rel="noopener">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>Facebook</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#" class="social-btn tiktok-btn silk-tiktok hidden" target="_blank" rel="noopener">
+                        <i class="fab fa-tiktok"></i>
+                        <span>TikTok</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOTÓN PRINCIPAL: Añadir contacto -->
+        <section class="add-contact-section">
+            <button id="add-contact-btn" class="add-contact-btn">
+                <i class="fas fa-user-plus"></i>
+                Añadir contacto
+            </button>
+        </section>
+    </div>
+
+    <!-- JAVASCRIPT: Enlazamos nuestro archivo de funcionalidad -->
+    <script src="assets/js/vcard.js"></script> <!-- Funcionalidad principal -->
+</body>
+</html>
