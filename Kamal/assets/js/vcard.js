@@ -219,11 +219,16 @@ function setupAddContactButton() {
  * Este es el formato estándar que entienden todos los teléfonos
  */
 function createVCardData() {
+     // Separar nombre completo en partes
+    const nameParts = personData.name.split(' ');
+    const firstName = nameParts[0] || '';
+    const lastName = nameParts.slice(1).join(' ') || '';
     // Formato vCard 3.0 (estándar universal)
     const vCard = [
         "BEGIN:VCARD",                                    // Inicio del vCard
-        "VERSION:3.0",                                    // Versión
-        `FN:${personData.name}`,                         // Nombre completo
+        "VERSION:3.0",                                   // Versión
+        `FN:${personData.name}`,                        // Nombre completo para mostrar
+        `N:${lastName};${firstName};;;`,                 // NUEVO: Estructura N requerida por iOS
         `ORG:${personData.company}`,                     // Organización
         `TITLE:${personData.title}`,                     // Cargo
         `TEL;TYPE=CELL:${personData.phoneDisplay}`,      // Teléfono móvil
