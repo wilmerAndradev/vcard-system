@@ -4,7 +4,7 @@
 const personData = {
     name: "ALMA MIRANI GULRAJANI",
     title: "CEO",
-    company: "Emirati Perfumes / Silk Perfumes",
+    company: "Silk Perfumes / Emirati Perfumes",
     phone: "+56959189393",           
     phoneDisplay: "+56 9 5918 9393", 
     email: "alma@silkperfumes.cl",

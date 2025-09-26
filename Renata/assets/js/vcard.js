@@ -4,7 +4,7 @@
 const personData = {
     name: "Renata Adofaci Aránguiz",
     title: "Commercial Manager",
-    company: "Emirati Perfumes / Silk Perfumes",
+    company: "Silk Perfumes / Emirati Perfumes",
     phone: "+56959124835",           
     phoneDisplay: "+56 9 5912 4835", 
     email: "renata@silkperfumes.cl",

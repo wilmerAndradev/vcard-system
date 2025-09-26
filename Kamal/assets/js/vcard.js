@@ -4,7 +4,7 @@
 const personData = {
     name: "Kamal Kumar Mirani",
     title: "Director",
-    company: "Emirati Perfumes / Silk Perfumes",
+    company: "Silk Perfumes / Emirati Perfumes",
     phone: "+56986373637",           
     phoneDisplay: "+56 9 86 373 637", 
     email: "kamalmirani@gmail.com",
