@@ -22,6 +22,7 @@ const personData = {
             instagram: "https://www.instagram.com/silkperfumes/", 
             facebook: "https://www.facebook.com/Silkperfumess/",
             tiktok: "https://www.tiktok.com/@silkperfumes.cl",
+            website: "https://www.silkperfumes.cl",
         }
     }
 };
@@ -166,6 +167,18 @@ function setupCompanySocials(company, socialData) {
         console.log(`✅ Instagram ${company} configurado:`, socialData.instagram);
     }
     
+    // Website - NUEVO
+    const websiteBtn = document.querySelector(`.${company}-website`);
+    if (websiteBtn) {
+        if (socialData.website) {
+            websiteBtn.href = socialData.website;
+            websiteBtn.classList.remove('hidden');
+            console.log(`✅ Website ${company} configurado:`, socialData.website);
+        } else {
+            websiteBtn.classList.add('hidden');
+        }
+    }
+
     // Facebook
     const facebookBtn = document.querySelector(`.${company}-facebook`);
     if (facebookBtn) {
@@ -192,6 +205,7 @@ function setupCompanySocials(company, socialData) {
         }
     }
 }
+
 
 /**
  * Configura el botón de "Añadir contacto"

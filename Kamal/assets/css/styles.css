@@ -415,6 +415,17 @@ body {
     font-size: 1.2rem;
 }
 
+/* Estilo para el favicon en el botón de website */
+.website-favicon {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 0.75rem;
+    border-radius: 3px;
+    object-fit: contain;
+    /* FILTRO PARA CONVERTIR A NEGRO */
+    filter: brightness(0) saturate(100%);
+}
+
 /* Texto del botón */
 .social-btn span {
     flex: 1;
@@ -451,6 +462,11 @@ body {
 
 .tiktok-btn:hover {
     background: #000000;
+    color: var(--white);
+}
+
+.website-btn:hover {
+    background: linear-gradient(45deg, #CAA07E 0%, #D9B68E 25%, #F6DBB9 50%, #EED1AD 75%, #CAA07E 100%);
     color: var(--white);
 }
 

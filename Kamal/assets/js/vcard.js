@@ -5,8 +5,19 @@ const personData = {
     name: "Kamal Kumar Mirani",
     title: "Director",
     company: "Silk Perfumes / Emirati Perfumes",
-    phone: "+56986373637",           
-    phoneDisplay: "+56 9 86 373 637", 
+    // MÚLTIPLES NÚMEROS DE TELÉFONO
+    phones: {
+        chile: {
+            number: "+56986373637",
+            display: "+56 9 86 373 637",
+            country: "Chile"
+        },
+        argentina: {
+            number: "+541130359666", 
+            display: "+54 11 30 359 666",
+            country: "Argentina"
+        }
+    },
     email: "kamalmirani@gmail.com",
     locations: "Chile / Argentina",
     profileImage: "./assets/images/profile-kamal.png",
@@ -22,6 +33,7 @@ const personData = {
             instagram: "https://www.instagram.com/silkperfumes/", 
             facebook: "https://www.facebook.com/Silkperfumess/",
             tiktok: "https://www.tiktok.com/@silkperfumes.cl",
+            website: "https://www.silkperfumes.cl",
         }
     }
 };
@@ -78,19 +90,28 @@ function handlePreloader() {
  * Configura los botones principales (teléfono y email)
  */
 function setupActionButtons() {
-    // Botón de teléfono/WhatsApp
+    // Botón principal será el número de Chile
     const phoneBtn = document.getElementById('phone-btn');
     if (phoneBtn) {
-        // URL de WhatsApp con el número
-        phoneBtn.href = `https://wa.me/${personData.phone}`;
+        phoneBtn.href = `https://wa.me/${personData.phones.chile.number}`;
         console.log("✅ Botón WhatsApp configurado:", phoneBtn.href);
     }
     
-    // Botón de email
+    // Actualizar campos de visualización
+    const whatsappChile = document.getElementById('whatsapp-chile');
+    const whatsappArgentina = document.getElementById('whatsapp-argentina');
+    
+    if (whatsappChile) {
+        whatsappChile.textContent = personData.phones.chile.display;
+    }
+    if (whatsappArgentina) {
+        whatsappArgentina.textContent = personData.phones.argentina.display;
+    }
+    
+    // Botón de email (mantener igual)
     const emailBtn = document.getElementById('email-btn');
     if (emailBtn) {
-        // URL de mailto con el email
-        emailBtn.href = `mailto:${personData.email}`;
+        emailBtn.href = `mailto:${personData.email}`;  // ← CAMBIAR: era phoneBtn.href
         console.log("✅ Botón Email configurado:", emailBtn.href);
     }
 }
@@ -167,6 +188,18 @@ function setupCompanySocials(company, socialData) {
         console.log(`✅ Instagram ${company} configurado:`, socialData.instagram);
     }
     
+    // Website - NUEVO
+    const websiteBtn = document.querySelector(`.${company}-website`);
+    if (websiteBtn) {
+        if (socialData.website) {
+            websiteBtn.href = socialData.website;
+            websiteBtn.classList.remove('hidden');
+            console.log(`✅ Website ${company} configurado:`, socialData.website);
+        } else {
+            websiteBtn.classList.add('hidden');
+        }
+    }
+
     // Facebook
     const facebookBtn = document.querySelector(`.${company}-facebook`);
     if (facebookBtn) {
@@ -219,24 +252,25 @@ function setupAddContactButton() {
  * Este es el formato estándar que entienden todos los teléfonos
  */
 function createVCardData() {
-     // Separar nombre completo en partes
+    // Separar nombre completo en partes
     const nameParts = personData.name.split(' ');
     const firstName = nameParts[0] || '';
     const lastName = nameParts.slice(1).join(' ') || '';
-    // Formato vCard 3.0 (estándar universal)
+    
     const vCard = [
-        "BEGIN:VCARD",                                    // Inicio del vCard
-        "VERSION:3.0",                                   // Versión
-        `FN:${personData.name}`,                        // Nombre completo para mostrar
-        `N:${lastName};${firstName};;;`,                 // NUEVO: Estructura N requerida por iOS
-        `ORG:${personData.company}`,                     // Organización
-        `TITLE:${personData.title}`,                     // Cargo
-        `TEL;TYPE=CELL:${personData.phoneDisplay}`,      // Teléfono móvil
-        `EMAIL:${personData.email}`,                     // Email
-        `URL:${personData.socialMedia.emirati.instagram}`, // Sitio web (Instagram principal)
-        `NOTE:Ubicaciones: ${personData.locations}`,     // Nota con ubicaciones
-        "END:VCARD"                                      // Fin del vCard
-    ].join('\r\n'); // Unir con saltos de línea
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        `FN:${personData.name}`,
+        `N:${lastName};${firstName};;;`,
+        `ORG:${personData.company}`,
+        `TITLE:${personData.title}`,
+        `TEL;TYPE=CELL:${personData.phones.chile.display}`,      // Número Chile
+        `TEL;TYPE=CELL:${personData.phones.argentina.display}`,  // Número Argentina
+        `EMAIL:${personData.email}`,
+        `URL:${personData.socialMedia.emirati.instagram}`,
+        `NOTE:Ubicaciones: ${personData.locations}`,
+        "END:VCARD"
+    ].join('\r\n');
     
     console.log("📝 vCard creado:", vCard);
     return vCard;
